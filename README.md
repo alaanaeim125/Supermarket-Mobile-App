@@ -6,7 +6,7 @@ This is [React Native Project].
 
 It is a mobile application use for superMarket Shop.
 
-The app is built with React Native and was developed and tested for **IOS only && Android**.
+The app is built with React Native and was developed and tested for **IOS && Android**.
 
 ### Running the application
 

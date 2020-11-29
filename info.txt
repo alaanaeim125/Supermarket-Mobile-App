@@ -1,0 +1,4 @@
+1- react-native-size-matters
+2- react-native-svg
+3- react-native-vector-icons
+4- 

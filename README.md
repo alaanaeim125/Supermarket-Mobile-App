@@ -20,16 +20,17 @@ And run using `npx react-native start` && `npx react-native run-android` && `npx
 
 <p float="left">
 
-  <img src="screenshot/loginScreen.png" width="25%" />
-  <img src="screenshot/confirmationScreen.png" width="25%" />
-  <img src="screenshot/homePage.png" width="25%" />
-  <img src="screenshot/categoryScreen.png" width="25%" />
-  <img src="screenshot/productScreen.png" width="25%" />
-  <img src="screenshot/checkOutScreen.png" width="25%" />
-  <img src="screenshot/searchScreen.png" width="25%" />
-  <img src="screenshot/accountScreen.png" width="25%" />
-  <img src="screenshot/addressScreen.png" width="25%" />
-  <img src="screenshot/orderScreen.png" width="25%" />
-  <img src="screenshot/cartScreen.png" width="25%" />
-  <img src="screenshot/updateAccountScreen.png" width="25%" />
+  <img src="screenshot/13.png" width="25%" />
+  <img src="screenshot/1.png" width="25%" />
+  <img src="screenshot/2.png" width="25%" />
+  <img src="screenshot/3.png" width="25%" />
+  <img src="screenshot/4.png" width="25%" />
+  <img src="screenshot/5.png" width="25%" />
+  <img src="screenshot/6.png" width="25%" />
+  <img src="screenshot/7.png" width="25%" />
+  <img src="screenshot/8.png" width="25%" />
+  <img src="screenshot/9.png" width="25%" />
+  <img src="screenshot/10.png" width="25%" />
+  <img src="screenshot/11.png" width="25%" />
+  <img src="screenshot/12.png" width="25%" />
 </p>

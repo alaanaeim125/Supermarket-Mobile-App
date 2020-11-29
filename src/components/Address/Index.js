@@ -7,7 +7,9 @@ const Address = (props) => {
   const {navigation, addressShip} = props;
 
   return (
-    <View style={styles.addresses}>
+    <TouchableOpacity
+      style={styles.addresses}
+      onPress={() => navigation.navigate('AddAdress')}>
       <Text style={styles.ship}>Shipt To</Text>
       {addressShip ? (
         <View>
@@ -26,7 +28,7 @@ const Address = (props) => {
       ) : (
         <Text style={styles.addAddress}>please Select || Add Address</Text>
       )}
-    </View>
+    </TouchableOpacity>
   );
 };
 

@@ -30,5 +30,6 @@ And run using `npx react-native start` && `npx react-native run-android` && `npx
   <img src="screenshot/accountScreen.png" width="25%" />
   <img src="screenshot/addressScreen.png" width="25%" />
   <img src="screenshot/orderScreen.png" width="25%" />
+  <img src="screenshot/cartScreen.png" width="25%" />
   <img src="screenshot/updateAccountScreen.png" width="25%" />
 </p>

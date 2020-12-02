@@ -1,9 +1,12 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, Dimensions} from 'react-native';
 import AppButton from '../AppButton/Index';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+import axios from 'axios';
+import {getCartItems} from '../../store/actions/CartAction';
 const AddToCartButton = (props) => {
-  const {productId} = props;
+  const {productId, countItems, cost} = props;
+  const dispatch = useDispatch();
 
   const cartItems = useSelector((state) => state.cart.cartItems);
   const mactchproduct = cartItems.find(
@@ -11,14 +14,60 @@ const AddToCartButton = (props) => {
   );
 
   const count = mactchproduct ? mactchproduct.count : 0;
-  console.log(mactchproduct);
   const [counter, setCounter] = useState(count);
 
-  IncrementCounterHandler = () => {
+  const addOrderToCart = () => {
+    axios
+      .post('/cart', {product: productId, cost: cost, count: countItems})
+      .then((res) => {
+        dispatch(getCartItems());
+      })
+      .catch((err) => {
+        console.log('err : ', err);
+      });
+  };
+
+  const increaseInCartOrders = () => {
+    axios
+      .put('/cart', {
+        id: mactchproduct._id,
+        action: 'increase',
+        count: countItems,
+      })
+      .then((res) => {
+        dispatch(getCartItems());
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const decreaseInCartOrders = () => {
+    axios
+      .put('/cart', {
+        id: mactchproduct._id,
+        action: counter === 1 ? 'delete' : 'decrease',
+        count: countItems,
+      })
+      .then((res) => {
+        dispatch(getCartItems());
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const IncrementCounterHandler = () => {
+    if (counter === 0) {
+      addOrderToCart();
+    } else {
+      increaseInCartOrders();
+    }
     setCounter(counter + 1);
   };
 
-  DecrementCounterHandler = () => {
+  const DecrementCounterHandler = () => {
+    decreaseInCartOrders();
     setCounter(counter - 1);
   };
 

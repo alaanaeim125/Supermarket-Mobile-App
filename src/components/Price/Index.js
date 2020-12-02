@@ -4,17 +4,16 @@ import {getActualPrice} from '../../../assets/helperFunction';
 import {CURRENCY} from '../../utils/constants';
 import {styles} from './Styles';
 
-const Price = (props) => {
-  const {price, discount} = props;
+const Price = ({price, discount, countItems = 1}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.price}>
-        {CURRENCY} {getActualPrice(price, discount).toFixed(2)}
+        {CURRENCY}
+        {countItems * getActualPrice(price, discount).toFixed(2)}
       </Text>
       {discount && (
         <Text style={styles.oldPrice}>
-          {CURRENCY}
-          {price.toFixed(2)}
+          {CURRENCY} {countItems * price.toFixed(2)}
         </Text>
       )}
     </View>

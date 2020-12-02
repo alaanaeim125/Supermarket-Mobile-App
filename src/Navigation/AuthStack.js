@@ -16,7 +16,7 @@ const AuthStack = () => {
       <Stack.Screen
         name="ConfirmationCode"
         component={ConfirmationCode}
-        options={{headerBackTitle: true}}
+        options={{headerBackTitle: true, title: 'Confirm Code'}}
       />
     </Stack.Navigator>
   );

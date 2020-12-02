@@ -19,8 +19,8 @@ const SignIn = (props) => {
       axios
         .post('/verify', {phone: input.value})
         .then((res) => {
+          console.log('Confirmation Code : ', res.data);
           navigation.navigate('ConfirmationCode', {phone: input.value});
-          console.log(input.value, res.data);
         })
         .catch((err) => {
           console.log('Error Message : ', err);

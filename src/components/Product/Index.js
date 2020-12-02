@@ -24,10 +24,7 @@ const Product = (props) => {
           style={styles.image}
         />
       </Card>
-      <Price
-        price={product.price}
-        discount={dummyProductWithDiscount[0].discount}
-      />
+      <Price price={product.price} discount={product.discount} />
       <Text style={styles.title}>
         {cutLongName(product.title, (maxChar = 18))}
       </Text>

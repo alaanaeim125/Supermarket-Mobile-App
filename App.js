@@ -26,8 +26,10 @@ const App = () => {
   };
 
   useEffect(() => {
-    getcategories();
-    getProducts();
+    if (stateToken) {
+      getcategories();
+      getProducts();
+    }
   }, []);
 
   useEffect(() => {
@@ -44,7 +46,9 @@ const App = () => {
     AsyncStorage.getItem('token').then((res) => {
       setToken(res);
       dispatch({type: 'SET_TOKEN', payload: {token: res}});
-      dispatch(getCartItems());
+      if (res) {
+        dispatch(getCartItems());
+      }
       axios.defaults.headers.Authorization = 'Bearer ' + res;
       SplashScreen.hide();
     });

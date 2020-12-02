@@ -11,12 +11,12 @@ const SearchStack = () => {
       <Stack.Screen
         name="SearchScreen"
         component={Search}
-        options={{headerShown: false}}
+        options={{title: 'Search In Products'}}
       />
       <Stack.Screen
         name="ProductScreen"
         component={Product}
-        options={{headerBackTitle: true}}
+        options={{headerBackTitle: true, title: 'Product'}}
       />
     </Stack.Navigator>
   );

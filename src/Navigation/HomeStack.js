@@ -12,17 +12,17 @@ const HomeStack = () => {
       <Stack.Screen
         name="HomeScreen"
         component={Home}
-        options={{headerShown: false}}
+        options={{headerShown: false, title: 'Home'}}
       />
       <Stack.Screen
         name="ProductScreen"
         component={Product}
-        options={{headerBackTitle: true}}
+        options={{headerBackTitle: true, title: 'Product'}}
       />
       <Stack.Screen
         name="CategoryScreen"
         component={Category}
-        options={{headerBackTitle: true}}
+        options={{headerBackTitle: true, title: 'Category'}}
       />
     </Stack.Navigator>
   );

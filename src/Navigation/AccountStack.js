@@ -13,22 +13,22 @@ const AccountStack = () => {
       <Stack.Screen
         name="Account"
         component={Account}
-        options={{headerShown: false}}
+        options={{title: 'Account'}}
       />
       <Stack.Screen
         name="UpdateAccount"
         component={UpdateAccount}
-        options={{headerBackTitle: true}}
+        options={{headerBackTitle: true, title: 'Update Account'}}
       />
       <Stack.Screen
         name="AddAdress"
         component={AddAdress}
-        options={{headerBackTitle: true}}
+        options={{headerBackTitle: true, title: 'Add Address'}}
       />
       <Stack.Screen
         name="Orders"
         component={Orders}
-        options={{headerBackTitle: true}}
+        options={{headerBackTitle: true, title: 'Orders'}}
       />
     </Stack.Navigator>
   );

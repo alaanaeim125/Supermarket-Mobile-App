@@ -3,9 +3,10 @@ import {ScaledSheet} from 'react-native-size-matters';
 const styles = ScaledSheet.create({
   container: {
     flex: 1,
-    marginTop: '35@vs',
+    marginTop: '10@vs',
   },
   items: {flex: 1},
+  empty: {flex: 1},
   checkout: {
     flexDirection: 'row',
     justifyContent: 'space-between',

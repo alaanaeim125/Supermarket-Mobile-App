@@ -10,25 +10,21 @@ const Stack = createStackNavigator();
 const CartStack = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen
-        name="CartScreen"
-        component={Cart}
-        options={{headerShown: false}}
-      />
+      <Stack.Screen name="CartScreen" component={Cart} />
       <Stack.Screen
         name="ProductScreen"
         component={Product}
-        options={{headerBackTitle: true}}
+        options={{headerBackTitle: true, title: 'Product Page'}}
       />
       <Stack.Screen
         name="CheckoutScreen"
         component={CheckOut}
-        options={{headerBackTitle: true}}
+        options={{headerBackTitle: true, title: 'CheckOut'}}
       />
       <Stack.Screen
         name="AddAdress"
         component={AddAdress}
-        options={{headerBackTitle: true}}
+        options={{headerBackTitle: true, title: 'Add Address'}}
       />
     </Stack.Navigator>
   );

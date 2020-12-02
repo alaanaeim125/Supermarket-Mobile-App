@@ -1,15 +1,15 @@
 import {ScaledSheet} from 'react-native-size-matters';
-
 const styles = ScaledSheet.create({
   container: {
-    marginTop: '15@vs',
-    marginHorizontal: '10@vs',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: '120@vs',
   },
   icon: {
-    fontSize: 22,
+    fontSize: '100@vs',
   },
-  inputStyleWrapper: {
-    fontSize: 18,
+  title: {
+    fontSize: '25@vs',
   },
 });
 

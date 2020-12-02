@@ -17,8 +17,7 @@ const styles = ScaledSheet.create({
     borderRadius: 10,
   },
   title: {
-    fontWeight: 'bold',
-    fontSize: '15@s',
+    fontSize: '14@s',
     marginBottom: '7@vs',
     marginTop: '7@vs',
   },

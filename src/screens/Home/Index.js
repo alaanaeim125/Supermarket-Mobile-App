@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import {View, Text, FlatList, ScrollView, SafeAreaView} from 'react-native';
 import Category from '../../components/Category/Index';
 import Product from '../../components/Product/Index';
-import {dummyCategory, dummyProductWithDiscount} from '../../utils/dummyData';
 import {useDispatch, useSelector} from 'react-redux';
 import axios from 'axios';
 import styles from './Styles';

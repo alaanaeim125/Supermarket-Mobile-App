@@ -3,7 +3,7 @@ import {View, Text, Image, Platform} from 'react-native';
 import styles from './Styles';
 import Price from '../../components/Price/Index';
 import AddToCartButton from '../../components/AddToCartButton/AddToCartButton';
-import {cutLongName} from '../../../assets/helperFunction';
+import {cutLongName, getActualPrice} from '../../../assets/helperFunction';
 const baseURLImages = 'http://rncourseproject.com/uploads/products/';
 
 const Product = (props) => {
@@ -18,14 +18,18 @@ const Product = (props) => {
         />
       </View>
       <View style={styles.info}>
-        <Price price={product.price} />
+        <Price price={product.price} discount={product.discount} />
         <Text style={styles.titleProduct}>
           {cutLongName(product.title, 30)}
         </Text>
         <Text style={styles.productDescription}>{product.details}</Text>
       </View>
       <View style={styles.productBtn}>
-        <AddToCartButton productId={product._id} />
+        <AddToCartButton
+          productId={product._id}
+          countItems={product.increaseCount}
+          cost={getActualPrice(product.price, product.discount)}
+        />
       </View>
     </View>
   );

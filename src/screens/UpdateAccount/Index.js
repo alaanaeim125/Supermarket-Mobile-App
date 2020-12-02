@@ -6,7 +6,8 @@ import {useDispatch, useSelector} from 'react-redux';
 import axios from 'axios';
 import styles from './Style';
 
-const UpdateAccount = () => {
+const UpdateAccount = (props) => {
+  const {navigation} = props;
   const state = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
   const [name, setName] = useState({value: state.name || '', isValid: false});
@@ -18,6 +19,7 @@ const UpdateAccount = () => {
         axios.get('/user/get-data').then((res) => {
           dispatch({type: 'SET_USER', payload: {user: res.data.userData}});
         });
+        navigation.navigate('Account');
       })
       .catch((err) => {
         console.log(err);

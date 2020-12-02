@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, FlatList} from 'react-native';
+import {View, Text, FlatList, ActivityIndicator} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import axios from 'axios';
 import {styles} from './Style';
 import ParentCategory from '../../components/ParentCategory/Index';
 import Product from '../../components/Product/Index';
+
 const Category = (props) => {
   const {category} = props.route.params;
   const dispatch = useDispatch();
@@ -31,24 +32,33 @@ const Category = (props) => {
     });
   };
 
+  const keyExtractor = (item, index) => item.name + index.toString();
+
   const renderParentCategory = (
     categories,
     selectedCategory,
     setSelectedCategory,
   ) => {
-    return (
-      <FlatList
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}
-        data={categories}
-        keyExtractor={(item, index) => item.name + index.toString()}
-        renderItem={({item}) => (
+    const renderItem = React.useCallback(
+      ({item}) => {
+        return (
           <ParentCategory
             category={item}
             selectedCategory={selectedCategory}
             setSelectedCategory={setSelectedCategory}
           />
-        )}
+        );
+      },
+      [selectedCategory, setSelectedCategory],
+    );
+
+    return (
+      <FlatList
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+        data={categories}
+        keyExtractor={keyExtractor}
+        renderItem={renderItem}
       />
     );
   };
@@ -96,16 +106,19 @@ const Category = (props) => {
     categoryProducts.length === 0 && fetchCategoryProduct(selectedCategory);
   }, [selectedCategory]);
 
+  const keyExtractor2 = (item, index) => item.title + index.toString();
+  const renderItem2 = ({item}) => {
+    return <Product product={item} />;
+  };
+
   const renderProducts = () => {
     return (
       <FlatList
         showsVerticalScrollIndicator={false}
         numColumns={2}
         data={categoryProducts}
-        keyExtractor={(item, index) => item.title + index.toString()}
-        renderItem={({item, index}) => {
-          return <Product product={item} />;
-        }}
+        keyExtractor={keyExtractor2}
+        renderItem={renderItem2}
         onEndReachedThreshold={0.5}
         onEndReached={() => fetchCategoryProduct(selectedCategory)}
       />
@@ -122,10 +135,14 @@ const Category = (props) => {
             setSelectedCategory,
           )}
       </View>
-      {categoryProducts && (
+      {categoryProducts.length > 0 ? (
         <View style={styles.productsList}>
           <Text style={styles.titleProduct}>Products</Text>
           {renderProducts()}
+        </View>
+      ) : (
+        <View style={styles.loader}>
+          <ActivityIndicator size="large" color="#0000ff" />
         </View>
       )}
     </View>

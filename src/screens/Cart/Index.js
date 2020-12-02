@@ -13,14 +13,18 @@ const Cart = (props) => {
   const cartItems = state.cart.cartItems;
   let total = CartSelectors(state);
 
+  const renderItem = ({item}) => {
+    return <CartItem item={item} navigation={navigation} />;
+  };
+
+  const keyExtractor = (items, index) => index.toString();
+
   const renderCartItems = (items) => {
     return (
       <FlatList
         data={items}
-        keyExtractor={(items, index) => index.toString()}
-        renderItem={({item, index}) => (
-          <CartItem item={item} navigation={navigation} />
-        )}
+        keyExtractor={keyExtractor}
+        renderItem={renderItem}
       />
     );
   };

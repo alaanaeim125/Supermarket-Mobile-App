@@ -26,4 +26,9 @@ export const styles = ScaledSheet.create({
     fontSize: '15@s',
     paddingLeft: '10@s',
   },
+  loader: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });

@@ -22,7 +22,10 @@ const HomeStack = () => {
       <Stack.Screen
         name="CategoryScreen"
         component={Category}
-        options={{headerBackTitle: true, title: 'Category'}}
+        options={({route}) => ({
+          headerBackTitle: true,
+          title: route.params.category.name,
+        })}
       />
     </Stack.Navigator>
   );

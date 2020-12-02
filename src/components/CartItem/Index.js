@@ -11,7 +11,6 @@ const baseURLImages = 'http://rncourseproject.com/uploads/products/resized/';
 
 const CartItem = (props) => {
   const {item, navigation} = props;
-  console.log(item);
 
   return (
     <Card style={styles.container}>
